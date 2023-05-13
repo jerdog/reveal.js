@@ -13,6 +13,7 @@ jobs:
       name: node/default
       tag: current
     resource_class: large
+    parallelism: 4
     steps:
       - checkout
       - browser-tools/install-browser-tools
