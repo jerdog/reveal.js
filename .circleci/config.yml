@@ -10,6 +10,7 @@ jobs:
         type: string
     docker:
       - image: cimg/node:<< parameters.node-ver >>-browsers
+    resource_class: large
     steps:
       - checkout
 #      - node/install:
@@ -30,6 +31,8 @@ jobs:
       - run: 
           command: npm test
           name: Test app
+      - store_test_results:
+          path: test-results
 
 workflows:
   js-tests:
